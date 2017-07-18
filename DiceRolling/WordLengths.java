@@ -6,18 +6,18 @@ import edu.duke.*;
  * @version (a version number or a date)
  */
 public class WordLengths {
-    public int[] countWordLengths(FileResource resource, int[] counts){
+    public void countWordLengths(FileResource resource, int[] counts){
         String[] word_store = new String[counts.length];
         for(String word: resource.words()){
             int length = word.length();
-            if(!Character.isLetter(word.charAt(0))){
-                word = word.substring(1);
-                length = length - 1;                
-            }
-            if(!Character.isLetter(word.charAt(length - 1))){
+            if(! Character.isLetter(word.charAt(0)) && ! Character.isLetter(word.charAt(length -1 )) && length > 2){
+                length = length - 2;
+            } else if ( Character.isLetter(word.charAt(0)) && ! Character.isLetter(word.charAt(length -1 ))){
                 length = length - 1;
-                word = word.substring(0,length);
+            } else if (! Character.isLetter(word.charAt(0)) &&  Character.isLetter(word.charAt(length -1 ))){
+                length = length - 1;
             }
+
             counts[length] += 1;
             word_store[length] = word_store[length] + " " + word;
         } 
@@ -27,14 +27,14 @@ public class WordLengths {
                 
             }            
         }
-        return counts;
+        // return counts;
     }
     public void testCountWordLengths(){
         FileResource resource = new FileResource();
         int[] counts = new int[31];
-       
-        int index = indexOfMax(countWordLengths(resource, counts));
-        System.out.println("index position of the largest element in valuse is: " + index);
+        countWordLengths(resource, counts);
+        // int index = indexOfMax(countWordLengths(resource, counts));
+        // System.out.println("index position of the largest element in valuse is: " + index);
     }
     public int indexOfMax(int[] values){
         int max_index = 0;
