@@ -67,8 +67,8 @@ public class CodonCount {
             System.out.println("Reading frame starting with " + num + " results in " + map.size() +  " unique codons");
             String common = getMostCommonCodon();
             System.out.println("and most common codon is" + common + "with count " + map.get(common));
-            System.out.println("Counts of codons between 1 and 5 inclusive are:");
-            printCodonCounts(1,5);
+            System.out.println("Counts of codons between num1 and num2 inclusive are:");
+            printCodonCounts(7,8);
             System.out.println();
             System.out.println();
             

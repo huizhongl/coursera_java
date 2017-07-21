@@ -2,5 +2,16 @@
 comment0.params=
 comment0.target=WordsInFiles()
 comment1.params=f
-comment1.target=void\ addWordsFromFile(edu.duke.FileResource)
-numComments=2
+comment1.target=void\ addWordsFromFile(java.io.File)
+comment1.text=\r\n\ \ \ \ private\ void\ addWordsFromFile(DirectoryResource\ dr){\r\n\ \ \ \ \ \ \ \ for\ (File\ f\:\ dr.selectedFiles()){\r\n\ \ \ \ \ \ \ \ \ \ \ \ String\ fName\ \=\ f.getName();\r\n\ \ \ \ \ \ \ \ \ \ \ \ FileResource\ fr\ \=\ new\ FileResource(f);\r\n\ \ \ \ \ \ \ \ \ \ \ \ for(String\ w\:\ fr.words()){\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ if(\!map.containsKey(w)){\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ArrayList<String>\ list\ \=\ new\ ArrayList<String>();\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ list.add(fName);\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ map.put(w,list);\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\ else\ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ArrayList<String>\ list\ \=\ map.get(w);\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ if(\!list.contains(fName)){\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ list.add(fName);\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ map.put(w,list);\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ for(String\ s\:\ map.keySet()){\r\n\ \ \ \ \ \ \ \ \ \ \ \ System.out.print(s\ +\ "\:\ "\ );\r\n\ \ \ \ \ \ \ \ \ \ \ \ ArrayList<String>\ list\ \=\ map.get(s);\r\n\ \ \ \ \ \ \ \ \ \ \ \ for(int\ k\=0;\ k<list.size();\ k++){\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ System.out.print(list.get(k)\ +\ ",\ ");\r\n\ \ \ \ \ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ \ \ \ \ System.out.println();\r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ }\r\n
+comment2.params=
+comment2.target=void\ buildWordFileMap()
+comment3.params=
+comment3.target=int\ maxNumber()
+comment4.params=num
+comment4.target=java.util.ArrayList\ wordsInNumFiles(int)
+comment5.params=word
+comment5.target=void\ printFilesIn(java.lang.String)
+comment6.params=
+comment6.target=void\ tester()
+numComments=7
