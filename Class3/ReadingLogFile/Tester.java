@@ -26,7 +26,7 @@ public class Tester
     
     public void testUniqueIPs(){
         LogAnalyzer la = new LogAnalyzer();
-        la.readFile("short-test_log");
+        la.readFile("weblog2_log");
         int uniqueIP = la.countUniqueIPs();
         System.out.println("There are " + uniqueIP + " IPs");
     }
@@ -39,17 +39,68 @@ public class Tester
     
     public void testUniqueIPVisitsOnDay(){
         LogAnalyzer la = new LogAnalyzer();
-        la.readFile("weblog1_log");
-        la.uniqueIPVisitsOnDay("Mar 24");
+        la.readFile("weblog2_log");
+        la.uniqueIPVisitsOnDay("Sep 24");
         //la.uniqueIPVisitsOnDay("Sep 30");
         
     }
     public void testCountUniqueIPsInRange(){
         LogAnalyzer la = new LogAnalyzer();
+        la.readFile("weblog2_log");
+        int test1 = la.countUniqueIPsInRange(200,299);
+        System.out.println(test1);
+        //int test2 = la.countUniqueIPsInRange(300,399);
+        //System.out.println(test2);
+    }
+    
+    public void testCountVisitsPerIP(){
+        LogAnalyzer la = new LogAnalyzer();
         la.readFile("weblog1_log");
-        //int test1 = la.countUniqueIPsInRange(200,299);
-        //System.out.println(test1);
-        int test2 = la.countUniqueIPsInRange(300,399);
-        System.out.println(test2);
+        HashMap<String, Integer> counts = la.countVisitsPerIP();
+        System.out.println(counts);
+        /*
+        for(String s: counts.keySet()){
+            System.out.println(s + "\t" + counts.get(s));
+        }
+        */
+    }
+    
+    public void testMostNumberVisitsByIP(){
+        LogAnalyzer la = new LogAnalyzer();
+        la.readFile("weblog2_log");
+        HashMap<String, Integer> counts = la.countVisitsPerIP();
+        int max = la.mostNumberVisitsByIP(counts);
+        System.out.println("most number visits by IP is: " + max);
+    }
+    
+    public void testIPsMostVisits(){
+        LogAnalyzer la = new LogAnalyzer();
+        la.readFile("weblog2_log");
+        HashMap<String, Integer> counts = la.countVisitsPerIP();
+        ArrayList<String> visit = la.iPsMostVisits(counts);
+        System.out.println(visit);
+    }
+    
+    public void testIPsForDay(){
+        LogAnalyzer la = new LogAnalyzer();
+        la.readFile("weblog3-short_log");
+        HashMap<String,ArrayList<String>> ipMap = la.iPsForDay();
+        System.out.println(ipMap);
+    }
+    
+    public void testDayWithMostIPVisits(){
+        LogAnalyzer la = new LogAnalyzer();
+        la.readFile("weblog2_log");
+        HashMap<String,ArrayList<String>> ipMap = la.iPsForDay();
+        String day = la.dayWithMostIPVisits(ipMap);
+        System.out.println(day);
+    }
+    
+    public void testIPsWithMostVisitsOnDay(){
+        LogAnalyzer la = new LogAnalyzer();
+        la.readFile("weblog2_log");
+        HashMap<String,ArrayList<String>> ipMap = la.iPsForDay();
+        ArrayList result = la.iPsWithMostVisitsOnDay(ipMap, "Sep 30");
+        System.out.println(result);
     }
 }
