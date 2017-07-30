@@ -19,7 +19,7 @@ public class LargestQuakes {
         System.out.println("read data for "+list.size()+" quakes");
         int maxIndex = indexOfLargest(list);
         // System.out.println("the max index is: " + maxIndex + " and has magnitude " + list.get(maxIndex).getMagnitude() );
-        ArrayList<QuakeEntry> answer = getLargest(list, 3);
+        ArrayList<QuakeEntry> answer = getLargest(list, 50);
         for(QuakeEntry qe: answer){
             System.out.println(qe);
         }
